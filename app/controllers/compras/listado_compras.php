@@ -1,6 +1,6 @@
 <?php
 
-    $sql = "SELECT c.id_compra_deta, c.num_compra, c.fecha_compra, prov.nombre as proveedor, prov.apellido, c.comprobante, c.cantidad, c.precio_compra as precio_unitario, c.total_compra, 
+    $sql = "SELECT c.id_compra_deta, c.num_compra, c.fecha_compra, prov.nombre as proveedor, prov.apellido, c.comprobante, c.cantidad, c.precio_unitario, c.total_compra, 
         prov.nombre as proveedor, prov.apellido,
         prod.id_productos, prod.codigo, prod.nombre as producto, prod.descripcion, prod.stock, prod.stock_minimo, prod.stock_maximo, prod.precio_compra, 
         prod.precio_venta, prod.imagen,
