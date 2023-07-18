@@ -46,7 +46,6 @@
             <div class="row">
                 <div class="col-lg-12">
                     <a href="create.php" class="btn btn-primary"><i class="fa fa-fas fa-plus"></i> Nueva Compra</a>
-                    <a href="create_2.php" class="btn btn-info"><i class="fa fa-fas fa-plus"></i> Nueva Compra</a>
                 </div>
             </div>
             <hr>
@@ -103,11 +102,14 @@
                                                         <td><?php echo $datos['precio_unitario']; ?></td>
                                                         <td><?php echo $datos['total_compra']; ?></td>
                                                         <td>
-                                                            <a href="show.php?id=<?php echo $datos['id_productos'];?>" class="btn btn-secondary btn-sm" title="Ver"><i class="fas fa-eye"></i></a>
-                                                            <a href="edit.php?id=<?php echo $datos['id_productos'];?>" class="btn btn-success btn-sm" title="Editar"><i class="fas fa-edit"></i></a>
+                                                            <a href="show.php?id=<?php echo $datos['id_compra_deta'];?>" class="btn btn-secondary btn-sm" title="Ver"><i class="fas fa-eye"></i></a>
+                                                            <a href="edit.php?id=<?php echo $datos['id_compra_deta'];?>" class="btn btn-success btn-sm" title="Editar"><i class="fas fa-edit"></i></a>
                                                             
-                                                            <form action="../app/controllers/productos/destroy_productos.php" method="POST" class="formulario-eliminar">
-                                                                <input type="text" name="id_productos" value="<?php echo $datos['id_productos'];?>" hidden>
+                                                            <form action="../app/controllers/compras/destroy_compras.php" method="POST" class="formulario-eliminar">
+                                                                <input type="text" name="id_compra" value="<?php echo $datos['id_compra_deta'];?>" hidden>
+                                                                <input type="text" name="producto_id" value="<?php echo $datos['id_productos'];?>" hidden>
+                                                                <input type="text" name="stock" value="<?php echo $datos['stock'];?>" hidden>
+                                                                <input type="text" name="cantidad" value="<?php echo $datos['cantidad'];?>" hidden>
                                                                 <button type="submit" class="btn btn-danger btn-sm" title="Eliminar"><i class="fas fa-trash"></i></button>
                                                             </form>
                                                         </td>
@@ -188,13 +190,13 @@
             }).buttons().container().appendTo('#tabla_compras_wrapper .col-md-6:eq(0)');
         });
 
-        //Eliminar Producto
+        //Eliminar Compra
         $('.formulario-eliminar').submit(function(e)
         {
             e.preventDefault();
 
             Swal.fire({
-                title: '¿Estás seguro de eliminar éste producto?',
+                title: '¿Estás seguro de eliminar está compra?',
                 text: "¡No podrás revertir esto!",
                 icon: 'warning',
                 showCancelButton: true,

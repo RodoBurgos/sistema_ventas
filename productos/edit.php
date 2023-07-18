@@ -78,7 +78,7 @@ if (isset($_SESSION['mensaje'])) {
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="categoria_id">Categoria:</label>
-                                                            <select name="categoria_id" class="form-control select2" required>
+                                                            <select name="categoria_id" class="form-control selectpicker" data-live-search="true">
                                                                 <?php
                                                                     include('../app/controllers/categorias/listado_categorias.php');
 

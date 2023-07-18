@@ -70,7 +70,7 @@
 
                       <div class="form-group">
                         <label for="rol_id">Rol del Usuario</label>
-                        <select name="rol_id" class="form-control select2">
+                        <select name="rol_id" class="form-control selectpicker" data-live-search="true">
                           <?php
                             include('../app/controllers/roles/listado_roles.php');
                             foreach ($datos_roles as $rol) 

@@ -72,11 +72,8 @@
                                                 <th>Imagen</th>
                                                 <th>Descripcion</th>
                                                 <th>Stock</th>
-                                                <th>Stock Minimo</th>
-                                                <th>Stock Maximo</th>
                                                 <th>Precio Compra</th>
                                                 <th>Precio Venta</th>
-                                                <th>Estado</th>
                                                 <th>Acción</th>
                                             </tr>
                                         </thead>
@@ -97,12 +94,35 @@
                                                             <img src="<?php echo $url.'/productos/img_productos/'.$datos['imagen']; ?>" width="30px">
                                                         </td>
                                                         <td><?php echo $datos['descripcion']; ?></td>
-                                                        <td><?php echo $datos['stock']; ?></td>
-                                                        <td><?php echo $datos['stock_minimo']; ?></td>
-                                                        <td><?php echo $datos['stock_maximo']; ?></td>
+
+                                                        <?php
+                                                        //Pone en color el stock
+                                                            $stock_actual = $datos['stock'];
+                                                            $stock_minimo = $datos['stock_minimo'];
+                                                            $stock_maximo = $datos['stock_maximo'];
+
+                                                            if($stock_actual < $stock_minimo)
+                                                            {
+                                                        ?>
+                                                                <td style="background-color: red;text-align:center"><?php echo $datos['stock']; ?></td>
+                                                        <?php
+                                                            }
+                                                            else if($stock_actual > $stock_maximo)
+                                                            {
+                                                        ?>
+                                                                <td style="background-color: #0ac68c;text-align:center"><?php echo $datos['stock']; ?></td>
+                                                        <?php        
+                                                            }
+                                                            else
+                                                            {
+                                                        ?>
+                                                                <td style="text-align:center"><?php echo $datos['stock']; ?></td>
+                                                        <?php
+                                                            }
+                                                        ?>
+                                                        
                                                         <td><?php echo $datos['precio_compra']; ?></td>
                                                         <td><?php echo $datos['precio_venta']; ?></td>
-                                                        <td><?php echo $datos['estado']; ?></td>
                                                         <td>
                                                             <a href="show.php?id=<?php echo $datos['id_productos'];?>" class="btn btn-secondary btn-sm" title="Ver"><i class="fas fa-eye"></i></a>
                                                             <a href="edit.php?id=<?php echo $datos['id_productos'];?>" class="btn btn-success btn-sm" title="Editar"><i class="fas fa-edit"></i></a>
